@@ -1,5 +1,3 @@
-import re
-
 numero_decimal = int(input())
 numero_da_potencia = 0
 numero_multiplicado = 0
