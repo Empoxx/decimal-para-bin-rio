@@ -1,10 +1,13 @@
-numero_decimal = int(input())
 numero_da_potencia = 0
 numero_multiplicado = 0
 numero_lista = []
 numero_somado = []
 lista_binario = []
+numero_decimal = int(input())
 
+while numero_decimal < 0:
+    print(f"O número {numero_decimal} é inválido.")
+    numero_decimal = int(input())
 
 while numero_multiplicado * 2 <= numero_decimal:
     numero_multiplicado = 2 ** numero_da_potencia
