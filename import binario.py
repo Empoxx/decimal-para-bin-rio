@@ -3,36 +3,78 @@ numero_da_potencia = 0
 numero_multiplicado = 0
 numero_lista = []
 numero_somado = []
+numero_binario = []
 lista_binario = []
 
-#inserir qql número
-numero_decimal = int(input())
+numero_para_decimal = []
 
-#se for colocado negativo, nao permite que seja executado o código até ser escolhido um positivo
-while numero_decimal < 0:
-    print(f"O número {numero_decimal} é inválido.")
+numero_ou_binario = str(input())
+
+if numero_ou_binario == "b":
+    #inserir qql número binario
+    print("Escolha um número binario")
+    numero_binario = int(input())
+
+    #se for colocado negativo, nao permite que seja executado o código até ser escolhido um positivo
+    while numero_binario < 0:
+        print(f"O número {numero_binario} é inválido.")
+        numero_binario = int(input())
+
+    #transformar o numero em array 
+    binario_separado = [int(numero) for numero in str(numero_binario)]
+    #print(binario_separado)
+
+    #inverter a lista
+    binario_separado.reverse()
+    
+
+    #pegar a lista e transformar em base 2
+    for array_binario in binario_separado:
+            if array_binario == 0 and array_binario < 2:
+                numero_para_decimal.append(0)
+                numero_da_potencia = numero_da_potencia + 1
+
+            if array_binario == 1 and array_binario < 2:
+                numero_para_decimal.append(2 ** numero_da_potencia)
+                numero_da_potencia = numero_da_potencia + 1
+
+    #vai printar os numeros escolhidos
+    print("O numero binario escolhido foi:", numero_binario)
+    print("O numero decimal desse binário é:", sum(numero_para_decimal))
+
+        
+
+        
+if numero_ou_binario == "n":
+    #inserir qql número inteiro
+    print("Escolha um número inteiro")
     numero_decimal = int(input())
 
-#criar uma lista de números base 2 em funçao do numero escolhido
-while numero_multiplicado * 2 <= numero_decimal:
-    numero_multiplicado = 2 ** numero_da_potencia
-    numero_lista.append(numero_multiplicado)
-    numero_da_potencia = numero_da_potencia + 1
+    #se for colocado negativo, nao permite que seja executado o código até ser escolhido um positivo
+    while numero_decimal < 0:
+        print(f"O número {numero_decimal} é inválido.")
+        numero_decimal = int(input())
 
-#inverter a ordem da lista 
-numero_lista.reverse()
+    #criar uma lista de números base 2 em funçao do numero escolhido
+    while numero_multiplicado * 2 <= numero_decimal:
+        numero_multiplicado = 2 ** numero_da_potencia
+        numero_lista.append(numero_multiplicado)
+        numero_da_potencia = numero_da_potencia + 1
 
-#pegar os números da lista e ver se cabe no numero escolhido
-for numeros in numero_lista:
-    if sum(numero_somado) + numeros <= numero_decimal:
-        lista_binario.append("1")
-        numero_somado.append(numeros)
-    else:
-        lista_binario.append("0")
-    #print(numero_lista)
+    #inverter a ordem da lista 
+    numero_lista.reverse()
 
-#mostrar os números
-#print(f"O resultado do número decimal {numero_decimal} é:", sum(numero_somado)) //ver se o resultado da lista tá dando certo 
-print(f"O número decimal escolhido foi: {numero_decimal}")
-#print("a lista de potência é:", numero_somado)
-print(f"O número em binário é:", ''.join(lista_binario),".")
+    #pegar os números da lista e ver se cabe no numero escolhido
+    for numeros in numero_lista:
+        if sum(numero_somado) + numeros <= numero_decimal:
+            lista_binario.append("1")
+            numero_somado.append(numeros)
+        else:
+            lista_binario.append("0")
+        #print(numero_lista)
+
+    #mostrar os números
+    #print(f"O resultado do número decimal {numero_decimal} é:", sum(numero_somado)) //ver se o resultado da lista tá dando certo 
+    print(f"O número decimal escolhido foi: {numero_decimal}")
+    #print("a lista de potência é:", numero_somado) // ver os numeros na potencia
+    print(f"O número em binário é:", ''.join(lista_binario),".")
