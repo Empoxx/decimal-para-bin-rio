@@ -34,5 +34,5 @@ for numeros in numero_lista:
 #mostrar os números
 #print(f"O resultado do número decimal {numero_decimal} é:", sum(numero_somado)) //ver se o resultado da lista tá dando certo 
 print(f"O número decimal escolhido foi: {numero_decimal}")
-print("a lista de potência é:", numero_somado)
+#print("a lista de potência é:", numero_somado)
 print(f"O número em binário é:", ''.join(lista_binario),".")
