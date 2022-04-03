@@ -11,24 +11,24 @@ numero_para_decimal = []
 numero_ou_binario = str(input())
 
 if numero_ou_binario == "b":
-    #inserir qql número binario
+    
     print("Escolha um número binario")
     numero_binario = int(input())
 
-    #se for colocado negativo, nao permite que seja executado o código até ser escolhido um positivo
+    
     while numero_binario < 0:
         print(f"O número {numero_binario} é inválido.")
         numero_binario = int(input())
 
-    #transformar o numero em array 
+    
     binario_separado = [int(numero) for numero in str(numero_binario)]
     #print(binario_separado)
 
-    #inverter a lista
+    
     binario_separado.reverse()
     
 
-    #pegar a lista e transformar em base 2
+    
     for array_binario in binario_separado:
             if array_binario == 0 and array_binario < 2:
                 numero_para_decimal.append(0)
@@ -38,7 +38,7 @@ if numero_ou_binario == "b":
                 numero_para_decimal.append(2 ** numero_da_potencia)
                 numero_da_potencia = numero_da_potencia + 1
 
-    #vai printar os numeros escolhidos
+    
     print("O numero binario escolhido foi:", numero_binario)
     print("O numero decimal desse binário é:", sum(numero_para_decimal))
 
