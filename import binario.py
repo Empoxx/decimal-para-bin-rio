@@ -50,18 +50,18 @@ if numero_ou_binario == "n":
     print("Escolha um número inteiro")
     numero_decimal = int(input())
 
-    #se for colocado negativo, nao permite que seja executado o código até ser escolhido um positivo
+    
     while numero_decimal < 0:
         print(f"O número {numero_decimal} é inválido.")
         numero_decimal = int(input())
 
-    #criar uma lista de números base 2 em funçao do numero escolhido
+    
     while numero_multiplicado * 2 <= numero_decimal:
         numero_multiplicado = 2 ** numero_da_potencia
         numero_lista.append(numero_multiplicado)
         numero_da_potencia = numero_da_potencia + 1
 
-    #inverter a ordem da lista 
+    
     numero_lista.reverse()
 
     #pegar os números da lista e ver se cabe no numero escolhido
